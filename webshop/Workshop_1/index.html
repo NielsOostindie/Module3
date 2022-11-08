@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="contaier">
+      <form action="doelbestand.php" method="post">
+        Voornaam : <input type="text" name="vnaam" placeholder="Voornaam" />
+        <br />
+        Achternaam :
+        <input type="text" name="anaam" placeholder="Achternaam" /> <br />
+
+        <input type="submit" /> <br />
+        <input type="date" name="datum" placeholder="jouw geboortedatum" />
+        <br />
+        <input type="datetime-local" name="local-datetime" /> <br />
+        <input type="time" name="time" /> <br />
+        <input type="week" name="week" /> <br />
+        <input type="month" name="month" /> <br />
+
+        <input
+          id="country"
+          type="text"
+          name="country"
+          size="40"
+          list="countries"
+        />
+        <datalist id="countries">
+          <option value="Australia"></option>
+          <option value="Canada"></option>
+          <option value="Germany"></option>
+          <option value="France"></option>
+          <option value="United Kingdom"></option>
+          <option value="United States"></option>
+        </datalist>
+
+        <br />
+
+        <input type="number" /> <br />
+        <input type="number" min="5" max="100" step="5" value="10" /> <br />
+        <input type="e-mail" name="email" required />
+        <input type="file" name="file" /><br />
+        <input type="color" /> <br />
+        <input type="range" name="range" min="1" max="10" />
+      </form>
+    </div>
+  </body>
+</html>
