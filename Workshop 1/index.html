@@ -1,16 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotifdy Web Player</title>
-    <link rel="stylesheet" href="../Workshop 1/assets/style/style.css">
-</head>
-<body>
-    <audio src="../Workshop 1/assets/audio/Piep Kicks.webm" controls></audio>
-    <audio src="../Workshop 1/assets/audio/NO MONEY.webm" controls></audio>
-    <audio src="../Workshop 1/assets/audio/Ik Ben Kachel.webm" controls></audio>
-    <audio src="../Workshop 1/assets/audio/VEIL OF MAYA - Mikasa (Official Music Video).webm" controls></audio>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CodePen - Playlist Carousel - css only</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="container">
+      <input type="radio" name="slider" id="item-1" checked />
+      <input type="radio" name="slider" id="item-2" />
+      <input type="radio" name="slider" id="item-3" />
+      <input type="radio" name="slider" id="item-4" />
+      <input type="radio" name="slider" id="item-5" />
+      <div class="cards">
+        <label class="card" for="item-1" id="song-1">
+          <img
+            id="piepKicks"
+            src="../Workshop 1/assets/images/piepKicks.jpeg"
+            onClick="playMySong(1)"
+            alt="song"
+          />
+        </label>
+        <label class="card" for="item-2" id="song-2">
+          <img
+            id="noMoney"
+            src="../Workshop 1/assets/images/noMoney.jpeg"
+            onclick="playMySong(2)"
+            alt="song"
+          />
+        </label>
+        <label class="card" for="item-3" id="song-3">
+          <img
+            id="ikBenKachel"
+            src="../Workshop 1/assets/images/ikBenKachel.jpeg"
+            onclick="playMySong(3)"
+            alt="song"
+          />
+        </label>
+        <label class="card" for="item-4" id="song-4">
+          <img
+            id="mikasa"
+            src="../Workshop 1/assets/images/mikasa.jpeg"
+            onclick="playMySong(4)"
+            alt="song"
+          />
+        </label>
+        <label class="card" for="item-5" id="song-5">
+            <img
+              id="mikasa"
+              src="../Workshop 1/assets/images/merry axemas.png"
+              onclick="playMySong(5)"
+              alt="song"
+            />
+          </label>
+      </div>
+      <div class="player">
+        <div class="upper-part">
+          <div class="play-icon">
+            <svg
+              onclick="pauseMySong()"
+              width="20"
+              height="20"
+              fill="#2992dc"
+              stroke="#2992dc"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              class="feather feather-play"
+              viewBox="0 0 24 24"
+            >
+              <defs />
+              <path d="M5 3l14 9-14 9V3z" />
+            </svg>
+          </div>
+          <div class="info-area" id="test">
+            <label class="song-info" id="song-info-1">
+              <div class="title">Piep Kicks</div>
+              <div class="sub-line">
+                <div class="subtitle">GPF</div>
+                <div class="time">2:48</div>
+              </div>
+            </label>
+            <label class="song-info" id="song-info-2">
+              <div class="title">No Money</div>
+              <div class="sub-line">
+                <div class="subtitle">GPF</div>
+                <div class="time">3:22</div>
+              </div>
+            </label>
+            <label class="song-info" id="song-info-3">
+              <div class="title">Ik Ben Kachel</div>
+              <div class="sub-line">
+                <div class="subtitle">OBZ</div>
+                <div class="time">3:28</div>
+              </div>
+            </label>
+            <label class="song-info" id="song-info-4">
+              <div class="title">Mikasa</div>
+              <div class="sub-line">
+                <div class="subtitle">Veil Of Maya</div>
+                <div class="time">3.14</div>
+              </div>
+            </label>
+            <label class="song-info" id="song-info-5">
+                <div class="title">Merry Axe-Mas</div>
+                <div class="sub-line">
+                  <div class="subtitle">Ice Nine Kills</div>
+                  <div class="time">3.19</div>
+                </div>
+              </label>
+          </div>
+        </div>
+        <div class="progress-bar">
+          <span class="progress"></span>
+        </div>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./script.js"></script>
+    <audio
+      id="myAudio1"
+      src="../Workshop 1/assets/audio/Piep Kicks.webm"
+    ></audio>
+    <audio id="myAudio2" src="../Workshop 1/assets/audio/NO MONEY.webm"></audio>
+    <audio
+      id="myAudio3"
+      src="../Workshop 1/assets/audio/Ik Ben Kachel.webm"
+    ></audio>
+    <audio
+      id="myAudio4"
+      src="../Workshop 1/assets/audio/VEIL OF MAYA - Mikasa (Official Music Video).webm"
+    ></audio>
+    <audio
+      id="myAudio5"
+      src="../Workshop 1/assets/audio/Merry Axe-Mas (1).webm"
+    ></audio>
+    <audio
+      id="myAudio6"
+      src="../Workshop 1/assets/audio/wachtenopark.mp3"
+    ></audio>
+  </body>
+  <script>
+    var lijst = [
+      document.getElementById("myAudio1"),
+      document.getElementById("myAudio2"),
+      document.getElementById("myAudio3"),
+      document.getElementById("myAudio4"),
+      document.getElementById("myAudio5"),
+      document.getElementById("myAudio6"),
+    ];
+
+    var audios = document.getElementsByTagName("audio");
+    for(let i in audios){
+        audios[i].pause();
+    }
+
+    console.log(audios)
+
+    var audioIndex = 0;
+    var progressed = document.getElementsByClassName("progress")
+
+    function playMySong(index) {
+      var currentSong = lijst[index - 1];
+      if (currentSong.paused) {
+        currentSong.play();
+      } else {
+        currentSong.pause();
+      }
+      for(let i in audios){
+        if(index  -1!= i){
+            audios[i].pause();
+        }
+    }
+    }
+  </script>
 </html>
