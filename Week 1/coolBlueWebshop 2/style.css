@@ -147,6 +147,7 @@ a:link { text-decoration: none; }
     border: none;
     background: #00B900;
     box-shadow: rgb(0, 153, 0) 0px -2px 0px 0px inset;
+    border-radius: 5px;
     float: right;
     width: 110px;
     height: 40px;
